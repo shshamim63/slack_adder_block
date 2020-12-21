@@ -24,10 +24,14 @@ RSpec.describe Calculation do
   end
 
   context 'generate_result' do
-    let(:num1) { "123" }
-    let(:num2) { "123" }
-    it "converts the strings into numbers and returns the summation" do
-      expect(Calculation.generate_result(num1,num2)).to eql(246)
+    let(:integer_num) { "123" }
+    let(:float_num) { "123.30" }
+    it "converts the strings into integer and returns the summation" do
+      expect(Calculation.generate_result(integer_num, integer_num)).to eql(246)
+    end
+
+    it "converts the strings into decimal and returns the summation" do
+      expect(Calculation.generate_result(float_num, float_num)).to eql(246.60)
     end
   end
 end
