@@ -7,9 +7,10 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem 'slack-ruby-bot'
 gem 'puma'
 gem 'sinatra'
-gem'celluloid-io'
 gem 'dotenv'
 gem 'bigdecimal'
+gem'celluloid-io'
+gem 'async-websocket', '~>0.8.0'
 
 group :development, :test do
   gem 'rake'
