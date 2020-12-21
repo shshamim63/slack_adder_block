@@ -22,4 +22,12 @@ RSpec.describe Calculation do
       expect(Calculation.separate_numbers(command_converted_string)).not_to eql(["123","123"])
     end
   end
+
+  context 'generate_result' do
+    let(:num1) { "123" }
+    let(:num2) { "123" }
+    it "converts the strings into numbers and returns the summation" do
+      expect(Calculation.generate_result(num1,num2)).to eql(246)
+    end
+  end
 end
