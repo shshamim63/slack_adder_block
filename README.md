@@ -37,7 +37,7 @@ bundle install
 ### Usage
 - Run the config file from your terminal.
 ```
-rackup
+foreman start
 ```
 - Open you slack and search for the username that you provided.
 - Send a command `1+2`
