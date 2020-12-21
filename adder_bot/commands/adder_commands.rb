@@ -1,8 +1,15 @@
+require_relative '../string_operation'
+
 module AdderBot
   module Commands
     class Operation < SlackRubyBot::Commands::Base
-      scan(/hello/) do |client, data, stocks|
-        client.say(text: "I am working", channel: data.channel)
+      scan(/[\s\S]+/) do |client, data, match|        
+        if /-?\d+(?:\.\d+(?:E\d+)?)?\s*[+]\s*-?\d+(?:\.\d+(?:E\d+)?)?/.match(match[0])
+          substring = Calculation.seperate_target_string(match[0])
+          client.say(text: substring, channel: data.channel)
+        else
+          client.say(text: "Sorry, I didn't understand that. I only add numbers in this format. eg: 5+6 or 6+3", channel: data.channel)
+        end
       end
     end
   end
